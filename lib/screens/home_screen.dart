@@ -9,20 +9,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
     @override
     Widget build(BuildContext context) {
-        return Scaffold(
-            appBar: AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0.0,
-                leading: IconButton(
-                    icon: Icon(Icons.menu, color: kAllowatchPrimaryTextColor,),
-                    onPressed: (){}
-                ),
-                title: Text(
-                    "Allowatch",
-                    style: Theme.of(context).textTheme.title
-                ),
-                centerTitle: true,
-            ),
-        );
+        return Scaffold();
     }
 }

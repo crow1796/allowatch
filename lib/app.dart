@@ -1,5 +1,7 @@
 import 'package:allowatch/colors.dart';
 import 'package:allowatch/screens/home_screen.dart';
+import 'package:allowatch/screens/login_screen.dart';
+import 'package:allowatch/screens/registration_screen.dart';
 import "package:flutter/material.dart";
 
 class AllowatchApp extends StatelessWidget {
@@ -7,7 +9,12 @@ class AllowatchApp extends StatelessWidget {
     Widget build(BuildContext context) {
         return MaterialApp(
             theme: _buildTheme(),
-            home: HomeScreen()
+            home: HomeScreen(),
+            initialRoute: "/login",
+            routes: {
+                "/login": (BuildContext context) => LoginScreen(),
+                "/registration": (BuildContext context) => RegistrationScreen()
+            }
         );
     }
 
@@ -15,15 +22,19 @@ class AllowatchApp extends StatelessWidget {
         ThemeData baseTheme = ThemeData.light();
         return baseTheme.copyWith(
             textTheme: baseTheme.textTheme.copyWith(
-                title: baseTheme.textTheme.title.copyWith(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 16.0
-                ),
                 display1: baseTheme.textTheme.display1.copyWith(
-                    fontWeight: FontWeight.w300
+                    fontSize: 17.0,
+                    color: kAllowatchPrimaryTextColor
+                ),
+                display2: baseTheme.textTheme.display2.copyWith(
+                    fontSize: 19.0,
+                    color: kAllowatchPrimaryTextColor
                 )
             ).apply(
-                fontFamily: "VarelaRound"
+                fontFamily: "JosefinSans"
+            ),
+            iconTheme: baseTheme.iconTheme.copyWith(
+                color: kAllowatchPrimaryColor
             )
         );
     }
