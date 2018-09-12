@@ -41,7 +41,10 @@ class AWLoginFormState extends State<AWLoginForm> {
                         ),
                         Container(
                             margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-                            child: AWFlatButton(text: "Login")
+                            child: AWFlatButton(
+                                text: "Login",
+                                onTap: () => Navigator.of(context).popAndPushNamed("/wizard")
+                            )
                         ),
                         Padding(
                             padding: EdgeInsets.only(top: 10.0, left: 20.0),
