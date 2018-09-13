@@ -4,13 +4,14 @@ import "package:flutter/material.dart";
 class AWFlatButton extends StatelessWidget {
     final text;
     final onTap;
+    final color;
 
-    AWFlatButton({this.text, this.onTap });
+    AWFlatButton({this.text, this.onTap, this.color });
     
     @override
     Widget build(BuildContext context) {
         return Material(
-                color: kAllowatchPrimaryColor,
+                color: color ?? kAllowatchPrimaryColor,
                 child: InkWell(
                     splashColor: kAllowatchSecondaryColor,
                     onTap: onTap ?? (){},
@@ -21,7 +22,7 @@ class AWFlatButton extends StatelessWidget {
                             child: Text(
                                 text,
                                 style: Theme.of(context).textTheme.display2.copyWith(
-                                    color: kAllowatchSecondaryTextColor
+                                    color: color != null ? kAllowatchPrimaryTextColor : kAllowatchSecondaryTextColor
                                 ),
                             )
                         )

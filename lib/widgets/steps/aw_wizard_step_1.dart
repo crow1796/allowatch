@@ -10,6 +10,7 @@ class AWWizardStep1 extends StatefulWidget {
 
 class _AWWizardStep1State extends State<AWWizardStep1> {
     List<Map> _dayOptions;
+    List<int> _selectedDays = [];
 
     @override
     void initState(){
@@ -55,6 +56,7 @@ class _AWWizardStep1State extends State<AWWizardStep1> {
                 ),
                 AWFormLabel(label: "On what days do you get your allowance?"),
                 AWToggleSelector(
+                    model: _selectedDays,
                     options: _dayOptions,
                     multiple: true
                 ),

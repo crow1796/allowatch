@@ -75,17 +75,22 @@ class _WizardScreenState extends State<WizardScreen> {
                             onTap: (){
                                 setState(() => _currentStep--);
                             },
+                            color: kAllowatchGreyColor
                         ),
                     ));
         }
 
         buttons.add(Expanded(
                 child: AWFlatButton(
-                    text: "Next",
+                    text: _currentStep == (_wizardContents.length - 1) ? "Finish" : "Next",
                     onTap: (){
-                        setState((){
-                            if(_currentStep < (_wizardContents.length - 1)) _currentStep++;
-                        });
+                        if(_currentStep < (_wizardContents.length - 1)){
+                            setState((){
+                                _currentStep++;
+                            });
+                            return true;
+                        }
+                        Navigator.of(context).pop();
                     },
                 )
             ));

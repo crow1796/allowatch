@@ -15,29 +15,15 @@ class _AWWizardStep3State extends State<AWWizardStep3> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
                 Padding(
-                    padding: EdgeInsets.only(bottom: 15.0, top: 25.0),
-                    child: Text(
-                        "Set your first Goal",
-                        style: Theme.of(context).textTheme.display3,
+                    padding: EdgeInsets.symmetric(vertical: 30.0),
+                    child: Center(
+                        child: Text(
+                            "Start Saving!",
+                            style: Theme.of(context).textTheme.display4,
+                        )
                     )
                 ),
-                AWFormLabel(label: "What's your goal? e.g. Car, Rental, Bills"),
-                AWTextField(hintText: "Your Goal"),
-                AWFormLabel(label: "Amount"),
-                AWTextField(hintText: "0.00", type: TextInputType.number),
-                AWFormLabel(label: "Is it recurring?"),
-                AWToggleSelector(
-                    options: [
-                        {
-                            "text": "Yes",
-                            "borderRadius": BorderRadius.horizontal(left: Radius.circular(7.0))
-                        },
-                        {
-                            "text": "No",
-                            "borderRadius": BorderRadius.horizontal(right: Radius.circular(7.0))
-                        }
-                    ]
-                )
+                Image.asset("assets/images/final.png")
             ],
         );
     }
