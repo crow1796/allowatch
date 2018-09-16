@@ -2,6 +2,7 @@ import 'package:allowatch/colors.dart';
 import 'package:allowatch/screens/home_screen.dart';
 import 'package:allowatch/screens/login_screen.dart';
 import 'package:allowatch/screens/registration_screen.dart';
+import 'package:allowatch/screens/splash_screen.dart';
 import 'package:allowatch/screens/wizard_screen.dart';
 import "package:flutter/material.dart";
 
@@ -9,11 +10,15 @@ class AllowatchApp extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return MaterialApp(
+            debugShowCheckedModeBanner: false,
             theme: _buildTheme(),
             home: HomeScreen(),
-            initialRoute: "/login",
+            initialRoute: "/splash",
             onGenerateRoute: (RouteSettings settings){
                 switch(settings.name){
+                    case "/splash": return AWCustomRouteBuilder(
+                        widget: SplashScreen()
+                    );
                     case "/login": return AWCustomRouteBuilder(
                         widget: LoginScreen()
                     );
@@ -75,20 +80,6 @@ class AWCustomRouteBuilder extends PageRouteBuilder{
     AWCustomRouteBuilder({this.widget})
         : super(
             pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) => widget,
-            transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
-                return SlideTransition(
-                    position: Tween<Offset>(
-                        begin: const Offset(-1.0, 0.0),
-                        end: Offset.zero,
-                    ).animate(animation),
-                    child: SlideTransition(
-                        position: Tween<Offset>(
-                            begin: Offset.zero,
-                            end: const Offset(-1.0, 0.0),
-                        ).animate(secondaryAnimation),
-                        child: child,
-                    ),
-                );
-            }
+            transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) => child
         );
 }
