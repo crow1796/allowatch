@@ -28,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
     @override
     Widget build(BuildContext context) {
         _topPadding = MediaQuery.of(context).padding.top;
-        _heroHeight = MediaQuery.of(context).size.height * .35 + _topPadding;
-        _maxHeroHeight = MediaQuery.of(context).size.height * .9;
+        _heroHeight = 230 + _topPadding;
+        _maxHeroHeight = 580.0;
         _contentWidth = MediaQuery.of(context).size.width - 50.0;
         
         return Scaffold(
@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: <Widget>[
                     ConstrainedBox(
                         constraints: BoxConstraints(
+                            minHeight: _heroHeight + 40,
                             maxHeight: _maxHeroHeight + 35.0
                         ),
                         child: LayoutBuilder(
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         children: <Widget>[
                                             AnimatedContainer(
                                                 padding: EdgeInsets.only(left: 25.0, right: 25.0, top: _topPadding),
-                                                height: _isGoalsToggled ? viewportConstraints.maxHeight : _heroHeight + 60,
+                                                height: _isGoalsToggled ? viewportConstraints.maxHeight : _heroHeight + 20,
                                                 decoration: BoxDecoration(
                                                     color: kAllowatchPrimaryTextColor
                                                 ),
@@ -185,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 duration: _animatedContainerDuration,
                                                 curve: _animatedContainerCurve,
                                                 child: Positioned(
-                                                bottom: 20.0,
+                                                bottom: _isGoalsToggled ? 20.0 : 0.0,
                                                 left: (MediaQuery.of(context).size.width / 2) - 75,
                                                 child: Container(
                                                         width: 150.0,
