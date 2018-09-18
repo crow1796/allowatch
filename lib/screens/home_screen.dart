@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:allowatch/colors.dart';
 import 'package:allowatch/widgets/aw_goal_progress_bar.dart';
+import 'package:allowatch/widgets/aw_goals_list.dart';
 import 'package:allowatch/widgets/aw_transactions_list.dart';
 import "package:flutter/material.dart";
 
@@ -60,7 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     onTap: (){},
                                                                 ),
                                                                 Expanded(
-                                                                    child: Image.asset("assets/images/hero-logo.png")
+                                                                    child: Image.asset(
+                                                                        "assets/images/hero-logo.png",
+                                                                        scale: 0.5,
+                                                                    )
                                                                 ),
                                                                 PopupMenuButton(
                                                                     child: Icon(Icons.settings, color: kAllowatchSecondaryTextColor),
@@ -126,16 +130,41 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             child: AnimatedContainer(
                                                                 duration: _animatedContainerDuration,
                                                                 curve: _animatedContainerCurve,
-                                                                decoration: BoxDecoration(
-                                                                    color: kAllowatchPrimaryColorDark
-                                                                ),
                                                                 height: _isGoalsToggled ? (viewportConstraints.maxHeight * .5) : 0.0,
-                                                                child: ListView(
-                                                                    padding: EdgeInsets.all(0.0),
-                                                                    children: <Widget>[
-                                                                        Text("asdsad"),
-                                                                    ],
-                                                                )
+                                                                child: AWGoalsList(
+                                                                        goals: [
+                                                                            {
+                                                                                "name": "House Rent",
+                                                                                "amount": 22.0,
+                                                                                "start_at": "Sept. 28, 2018",
+                                                                                "due": "Nov. 17, 2018"
+                                                                            },
+                                                                            {
+                                                                                "name": "iPhone X",
+                                                                                "amount": 50000.0,
+                                                                                "start_at": "Sept. 28, 2018",
+                                                                                "due": "Nov. 17, 2018"
+                                                                            },
+                                                                            {
+                                                                                "name": "Drums",
+                                                                                "amount": 22.0,
+                                                                                "start_at": "Sept. 28, 2018",
+                                                                                "due": "Nov. 17, 2018"
+                                                                            },
+                                                                            {
+                                                                                "name": "Cake",
+                                                                                "amount": 22.0,
+                                                                                "start_at": "Sept. 28, 2018",
+                                                                                "due": "Nov. 17, 2018"
+                                                                            },
+                                                                            {
+                                                                                "name": "Lechon",
+                                                                                "amount": 22.0,
+                                                                                "start_at": "Sept. 28, 2018",
+                                                                                "due": "Nov. 17, 2018"
+                                                                            }
+                                                                        ]
+                                                                    )
                                                             )
                                                         ),
                                                         Padding(
@@ -209,10 +238,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                     ),
                     Expanded(
-                        child: AnimatedContainer(
-                            duration: _animatedContainerDuration,
-                            curve: _animatedContainerCurve,
-                            padding: EdgeInsets.only(left: 25.0, right: 25.0, bottom: _isGoalsToggled ? 0.0 : 15.0, top:  _isGoalsToggled ? 10.0 : 25.0),
+                        child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
                             child: AWTransactionsList(
                                 transactions: [
                                     {

@@ -40,9 +40,15 @@ flutter:
   assets:
    - assets/images/final.png
    - assets/images/inline-logo.png
-   - assets/images/hero-logo.png
-   - assets/images/letter-logo.png
+   - assets/images/2.0x/inline-logo.png
+   - assets/images/3.0x/inline-logo.png
    - assets/images/logo.png
+   - assets/images/2.0x/logo.png
+   - assets/images/3.0x/logo.png
+   - assets/images/hero-logo.png
+   - assets/images/2.0x/hero-logo.png
+   - assets/images/3.0x/hero-logo.png
+   - assets/images/letter-logo.png
    - assets/images/slide-1.png
    - assets/images/slide-2.png
    - assets/images/slide-3.png
